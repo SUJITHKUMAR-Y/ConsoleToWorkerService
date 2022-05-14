@@ -25,6 +25,7 @@ namespace ConsoleToSevice
         public override Task StopAsync(CancellationToken cancellationToken)
         {
             Client.Dispose();
+            _logger.LogInformation("The Service Stopeed successfully :( ");
             return base.StopAsync(cancellationToken);
         }
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
