@@ -1,0 +1,11 @@
+﻿{
+  "profiles": {
+    "WorkerService" :{
+      "commandName": "Project",
+      "donetRunMessages": true,
+      "environmentVariables": {
+        "DOTNET_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}
