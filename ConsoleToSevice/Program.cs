@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.DependencyInjection;
+using System;
 
 namespace ConsoleToSevice
 {
@@ -6,7 +8,14 @@ namespace ConsoleToSevice
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            CreateHostBuilder(args).Build().Run();
         }
+
+        public static IHostBuilder CreateHostBuilder(string[] args) =>
+            Host.CreateDefaultBuilder(args).ConfigureServices((hostContext,services) =>
+            {
+                services.AddHostedService<Worker>();
+            });
+            
     }
 }
