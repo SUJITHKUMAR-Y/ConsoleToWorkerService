@@ -39,7 +39,9 @@ namespace ConsoleToSevice
 
         public static IHostBuilder CreateHostBuilder(string[] args)
         {
-            return Host.CreateDefaultBuilder(args).ConfigureServices((hostContext, services) =>
+            return Host.CreateDefaultBuilder(args)
+                .UseWindowsService()
+                .ConfigureServices((hostContext, services) =>
             {
                 services.AddHostedService<Worker>();
             }).UseSerilog();
